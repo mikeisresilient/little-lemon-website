@@ -2,6 +2,11 @@
 {% load static %}
 
 {% block content %}
+{% if success %}
+<script>
+    alert("Booking submitted successfully!");
+</script>
+{% endif %}
 <section>
   <article>
     <h1>Make a reservation</h1>
