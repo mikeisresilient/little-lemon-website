@@ -14,11 +14,21 @@ def about(request):
 
 def book(request):
     form = BookingForm()
+    success = False
+
     if request.method == 'POST':
         form = BookingForm(request.POST)
+
         if form.is_valid():
             form.save()
-    context = {'form':form}
+            success = True
+            form = BookingForm()
+
+    context = {
+        'form': form,
+        'success': success
+    }
+
     return render(request, 'book.html', context)
 
 # Add your code here to create new views
